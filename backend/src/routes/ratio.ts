@@ -85,7 +85,7 @@ router.post('/', async (req, res) => {
     res.json(transferRatio);
   } catch (error) {
     console.error('Error saving ratio:', error);
-    if (error.code === 11000) {
+    if (typeof error === 'object' && error !== null && 'code' in error && (error as any).code === 11000) {
       res.status(400).json({ message: 'Ratio already exists for this program-card combination' });
     } else {
       res.status(500).json({ message: 'Server error' });
