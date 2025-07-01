@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import axios from 'axios';
 import toast from 'react-hot-toast';
+import api from '../api';
 
 interface CloudinarySignature {
   signature: string;
@@ -48,7 +48,7 @@ export const useImageUpload = (): UseImageUploadReturn => {
 
     try {
       // Step 1: Get upload signature from backend
-      const signatureResponse = await axios.post('/api/upload/signature', { folder });
+      const signatureResponse = await api.post('/api/upload/signature', { folder });
       const signatureData: CloudinarySignature = signatureResponse.data;
 
       // Step 2: Prepare form data for Cloudinary
@@ -61,10 +61,10 @@ export const useImageUpload = (): UseImageUploadReturn => {
       formData.append('public_id', signatureData.public_id);
 
       // Step 3: Upload to Cloudinary (without Authorization header)
-      const uploadResponse = await axios.post(signatureData.uploadUrl, formData, {
+      const uploadResponse = await api.post(signatureData.uploadUrl, formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
-          // Remove Authorization header for Cloudinary uploads
+
         },
         onUploadProgress: (progressEvent) => {
           if (progressEvent.total) {
@@ -74,9 +74,9 @@ export const useImageUpload = (): UseImageUploadReturn => {
             setProgress(percentCompleted);
           }
         },
-        // Create a new axios instance without default headers for this request
+        
         transformRequest: [function (data, headers) {
-          // Remove authorization header specifically for Cloudinary
+          
           delete headers['Authorization'];
           return data;
         }],
@@ -107,7 +107,7 @@ export const useImageUpload = (): UseImageUploadReturn => {
     if (!url) return false;
 
     try {
-      await axios.delete('/api/upload/image', {
+      await api.delete('/api/upload/image', {
         data: { url },
       });
 

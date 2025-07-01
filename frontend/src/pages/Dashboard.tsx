@@ -141,33 +141,33 @@ const Dashboard: React.FC = () => {
     <div className="min-h-screen">
       <Header />
       
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 mt-12">
-        <div className="flex justify-between items-center mb-8">
+      <main className="max-w-7xl mx-auto px-2 sm:px-4 lg:px-8 py-4 sm:py-8 mt-16">
+        <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center mb-6 sm:mb-8 gap-4 sm:gap-0">
           <div>
-            <h1 className="text-3xl font-bold text-gray-900">Dashboard</h1>
-            <p className="text-gray-600 mt-1">
+            <h1 className="text-2xl sm:text-3xl font-bold text-gray-900">Dashboard</h1>
+            <p className="text-gray-600 mt-1 text-sm sm:text-base">
               Manage your frequent flyer programs and transfer ratios
             </p>
-            <div className="flex items-center space-x-4 mt-2 text-sm text-gray-500">
+            <div className="flex flex-wrap items-center space-x-2 sm:space-x-4 mt-2 text-xs sm:text-sm text-gray-500">
               <span>{programs.length} programs</span>
-              <span>•</span>
+              <span className="hidden sm:inline">•</span>
               <span>{creditCards.length} credit cards</span>
-              <span>•</span>
+              <span className="hidden sm:inline">•</span>
               <span>Welcome, {user?.username}</span>
             </div>
           </div>
-          <div className="flex items-center space-x-3">
+          <div className="flex flex sm:flex-row sm:items-center gap-2 sm:gap-3">
             <button
               onClick={handleRefresh}
               disabled={refreshing}
-              className="btn-secondary flex items-center space-x-2"
+              className="btn-secondary flex items-center justify-center space-x-2"
             >
               <RefreshCw className={`h-4 w-4 ${refreshing ? 'animate-spin' : ''}`} />
               <span>Refresh</span>
             </button>
             <button
               onClick={handleAddProgram}
-              className="btn-primary flex items-center space-x-2"
+              className="btn-primary flex items-center justify-center space-x-2"
             >
               <Plus className="h-5 w-5" />
               <span>Add Program</span>
@@ -175,10 +175,10 @@ const Dashboard: React.FC = () => {
           </div>
         </div>
 
-        <div className="card">
+        <div className="card p-2 sm:p-6 overflow-x-auto">
           <div className="mb-4">
-            <h2 className="text-lg font-semibold text-gray-900">Frequent Flyer Programs</h2>
-            <p className="text-sm text-gray-600">
+            <h2 className="text-base sm:text-lg font-semibold text-gray-900">Frequent Flyer Programs</h2>
+            <p className="text-xs sm:text-sm text-gray-600">
               Manage your airline loyalty programs and their credit card transfer ratios
             </p>
           </div>
