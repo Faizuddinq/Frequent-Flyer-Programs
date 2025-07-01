@@ -2,12 +2,12 @@ import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
 import mongoose from 'mongoose';
-import authRoutes from '../src/routes/auth';
-import ffpRoutes from '../src/routes/ffp';
-import creditCardRoutes from '../src/routes/creditCard';
-import ratioRoutes from '../src/routes/ratio';
-import uploadRoutes from '../src/routes/upload';
-import { seedDatabase } from '../src/utils/seed';
+import authRoutes from '../src/routes/auth.js';
+import ffpRoutes from '../src/routes/ffp.js';
+import creditCardRoutes from '../src/routes/creditCard.js';
+import ratioRoutes from '../src/routes/ratio.js';
+import uploadRoutes from '../src/routes/upload.js';
+import { seedDatabase } from '../src/utils/seed.js';
 
 dotenv.config();
 
