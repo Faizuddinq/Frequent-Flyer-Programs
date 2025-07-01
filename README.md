@@ -13,16 +13,16 @@ A full-stack MERN (MongoDB, Express, React, Node.js) application for managing cr
 
 <table>
   <tr>
-    <td><img src="./screenshots/2025-07-01_23h17_26.png" width="200"/></td>
-    <td><img src="./screenshots/2025-07-01_23h52_47.png" width="200"/></td>
-    <td><img src="./screenshots/2025-07-01_23h52_58.png" width="200"/></td>
-    <td><img src="./screenshots/2025-07-01_23h53_05.png" width="200"/></td>
+    <td><img src="./screenshots/2025-07-01_23h17_26.png" width="200" height="400"/></td>
+    <td><img src="./screenshots/2025-07-01_23h52_47.png" width="200" height="400"/></td>
+    <td><img src="./screenshots/2025-07-01_23h52_58.png" width="200" height="400"/></td>
+    <td><img src="./screenshots/2025-07-01_23h53_05.png" width="200" height="400"/></td>
   </tr>
   <tr>
-    <td><img src="./screenshots/2025-07-01_23h54_04.png" width="200"/></td>
-    <td><img src="./screenshots/2025-07-01_23h54_31.png" width="200"/></td>
-    <td><img src="./screenshots/2025-07-01_23h54_44.png" width="200"/></td>
-    <td><img src="./screenshots/2025-07-01_23h54_51.png" width="200"/></td>
+    <td><img src="./screenshots/2025-07-01_23h54_04.png" width="200" height="400"/></td>
+    <td><img src="./screenshots/2025-07-01_23h54_31.png" width="200" height="500"/></td>
+    <td><img src="./screenshots/2025-07-01_23h54_44.png" width="200" height="500"/></td>
+    <td><img src="./screenshots/2025-07-01_23h54_51.png" width="200" height="500"/></td>
   </tr>
 </table>
 
