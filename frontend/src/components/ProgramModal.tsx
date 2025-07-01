@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { FrequentFlyerProgram, CreditCard } from '../pages/Dashboard';
 import { X, Plus, Trash2 } from 'lucide-react';
 import ImageUpload from './ImageUpload';
-import axios from 'axios';
+import api from '../api';
 import toast from 'react-hot-toast';
 
 interface ProgramModalProps {
@@ -41,7 +41,7 @@ const ProgramModal: React.FC<ProgramModalProps> = ({ program, creditCards, onClo
 
   const fetchProgramRatios = async (programId: string) => {
     try {
-      const response = await axios.get(`/api/ratios/${programId}`);
+      const response = await api.get(`/api/ratios/${programId}`);
       const fetchedRatios = response.data.map((ratio: any) => ({
         _id: ratio._id,
         creditCardId: ratio.creditCardId._id || ratio.creditCardId,
@@ -95,12 +95,12 @@ const ProgramModal: React.FC<ProgramModalProps> = ({ program, creditCards, onClo
 
       if (program) {
         // Update existing program
-        const response = await axios.put(`/api/ffps/${program._id}`, programData);
+        const response = await api.put(`/api/ffps/${program._id}`, programData);
         programId = program._id;
         toast.success('Program updated successfully');
       } else {
         // Create new program
-        const response = await axios.post('/api/ffps', programData);
+        const response = await api.post('/api/ffps', programData);
         programId = response.data._id;
         toast.success('Program created successfully');
       }
@@ -118,10 +118,10 @@ const ProgramModal: React.FC<ProgramModalProps> = ({ program, creditCards, onClo
 
           if (ratio._id) {
             // Update existing ratio
-            await axios.put(`/api/ratios/${ratio._id}`, { ratio: ratio.ratio });
+            await api.put(`/api/ratios/${ratio._id}`, { ratio: ratio.ratio });
           } else {
             // Create new ratio
-            await axios.post('/api/ratios', ratioData);
+            await api.post('/api/ratios', ratioData);
           }
         } catch (ratioError: any) {
           console.error('Error saving ratio:', ratioError);

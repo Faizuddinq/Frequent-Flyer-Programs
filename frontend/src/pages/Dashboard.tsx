@@ -4,7 +4,7 @@ import Header from '../components/Header';
 import ProgramTable from '../components/ProgramTable';
 import ProgramModal from '../components/ProgramModal';
 import { Plus, RefreshCw } from 'lucide-react';
-import axios from 'axios';
+import api from '../api';
 import toast from 'react-hot-toast';
 
 export interface FrequentFlyerProgram {
@@ -57,7 +57,7 @@ const Dashboard: React.FC = () => {
 
   const fetchPrograms = async () => {
     try {
-      const response = await axios.get('/api/ffps');
+      const response = await api.get('/api/ffps');
       setPrograms(response.data);
     } catch (error: any) {
       console.error('Failed to fetch programs:', error);
@@ -69,7 +69,7 @@ const Dashboard: React.FC = () => {
 
   const fetchCreditCards = async () => {
     try {
-      const response = await axios.get('/api/credit-cards');
+      const response = await api.get('/api/credit-cards');
       setCreditCards(response.data);
     } catch (error: any) {
       console.error('Failed to fetch credit cards:', error);
@@ -100,7 +100,7 @@ const Dashboard: React.FC = () => {
     }
 
     try {
-      await axios.delete(`/api/ffps/${programId}`);
+      await api.delete(`/api/ffps/${programId}`);
       toast.success('Program archived successfully');
       fetchPrograms();
     } catch (error: any) {
@@ -111,7 +111,7 @@ const Dashboard: React.FC = () => {
 
   const handleToggleEnabled = async (programId: string, enabled: boolean) => {
     try {
-      await axios.put(`/api/ffps/${programId}`, { enabled });
+      await api.put(`/api/ffps/${programId}`, { enabled });
       toast.success(`Program ${enabled ? 'enabled' : 'disabled'} successfully`);
       fetchPrograms();
     } catch (error: any) {
