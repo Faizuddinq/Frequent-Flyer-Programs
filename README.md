@@ -1,4 +1,4 @@
-# Project Bolt
+# Project Frequent-Flyer-Programs
 
 A full-stack MERN (MongoDB, Express, React, Node.js) application for managing credit cards, frequent flyer programs, and transfer ratios.
 
